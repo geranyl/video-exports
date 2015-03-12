@@ -26,4 +26,4 @@ done
 ```
 
 https://github.com/geranyl/video-exports/tree/master/html5VideoExport_all.workflow/Contents/QuickLook
-![Workflow screenshot](/tree/master/html5VideoExport_all.workflow/Contents/QuickLook/Preview.png?raw=true "Automator Workflow")
+![Workflow screenshot](html5VideoExport_all.workflow/Contents/QuickLook/Preview.png?raw=true "Automator Workflow")
