@@ -24,3 +24,6 @@ do
 	-ss 00:00:02 -q:v 0 -vframes 1 -y "$newpath.jpg"
 done
 ```
+
+https://github.com/geranyl/video-exports/tree/master/html5VideoExport_all.workflow/Contents/QuickLook
+![Workflow screenshot](/tree/master/html5VideoExport_all.workflow/Contents/QuickLook/Preview.png?raw=true "Automator Workflow")
