@@ -67,7 +67,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>defaultLocation</key>
-					<string>~/Development/Colorfield/broadhead/public/images</string>
+					<string>~/Documents</string>
 					<key>granularity</key>
 					<integer>0</integer>
 					<key>multipleSelection</key>
@@ -167,7 +167,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>388.000000:158.000000</string>
+				<string>297.500000:158.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Ask for Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -273,7 +273,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>388.000000:264.000000</string>
+				<string>297.500000:264.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -329,9 +329,10 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>#Download and install static package from https://www.ffmpeg.org/download.html into /usr/local/bin/ffmpeg
+					<string>#Compile ffmpeg into /usr/local/bin/ffmpeg; compilation required to include libfdk-aac for mp4 audio
 #converts from mp4 to other web formats; can likely comment out mp4 encoding if existing file is already a good size
-#Using: ffmpeg version 2.5.3-tessus Copyright (c) 2000-2015 the FFmpeg developers built on Jan 10 2015 01:19:50 with Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn) configuration: --cc=/usr/bin/clang --prefix=/Users/tessus/data/ext/ffmpeg/sw --as=yasm --extra-version=tessus --disable-shared --enable-static --disable-ffplay --enable-gpl --enable-pthreads --enable-postproc --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libx265 --enable-libxvid --enable-libspeex --enable-bzlib --enable-zlib --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libxavs --enable-libsoxr --enable-libwavpack --enable-version3 --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-libvpx --enable-libgsm --enable-libopus --enable-libmodplug --enable-fontconfig --enable-libfreetype --enable-libass --enable-libbluray --enable-filters --disable-indev=qtkit --disable-indev=x11grab_xcb --enable-runtime-cpudetect
+#Using: ffmpeg version N-70742-gd79f7bf-tessus Copyright (c) 2000-2015 the FFmpeg developers built with Apple LLVM version 6.0 (clang-600.0.57) (based on LLVM 3.5svn) configuration: --prefix=/usr/local --as=yasm --extra-version=tessus --disable-shared --enable-static --disable-ffplay --enable-gpl --enable-version3 --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-pthreads --enable-postproc --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libx265 --enable-libxvid --enable-libspeex --enable-bzlib --enable-zlib --enable-libsoxr --enable-libwavpack --enable-libvo-aacenc --enable-libvpx --enable-libgsm --enable-libopus --enable-libmodplug --enable-fontconfig --enable-libfreetype --enable-libass --enable-libbluray --enable-filters --disable-indev=qtkit --disable-indev=x11grab_xcb --enable-runtime-cpudetect
+
 
 for f in "$@"
 do
@@ -345,12 +346,11 @@ do
 	# 2&gt; outputs a log to the desktop in case of errors
 	# jpg output slightly off start time, otherwise sometimes blank 
     /usr/local/bin/ffmpeg -i "$f" -y 2&gt; "$HOME"/Desktop/ffmpeglogger.txt \
-	-vcodec libx264 -preset slow -an -acodec libfaac -b:a 128k "$newpath.mp4" \
+	-c:v libx264 -preset slow -profile:v high -level 4.1 -c:a libfdk_aac -b:a 128k "$newpath.mp4" \
 	-vcodec libvpx -b:v 1500k -acodec libvorbis -ab 160000 -f webm -g 30 "$newpath.webm" \
-	-c:v libtheora -c:a libvorbis "$newpath.ogv" \
+	-c:v libtheora -q:v 10 -c:a libvorbis -q:a 10 "$newpath.ogv" \
 	-ss 00:00:02 -q:v 0 -vframes 1 -y "$newpath.jpg"
-done
-</string>
+done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -463,7 +463,7 @@ done
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>388.000000:633.000000</string>
+				<string>297.500000:754.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -473,19 +473,19 @@ done
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>0306C153-B09A-4010-98A6-819BF5E9AD83</key>
-		<dict>
-			<key>from</key>
-			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
-			<key>to</key>
-			<string>A9F849AA-7B2C-46EC-A61A-8559DB183ACA - A9F849AA-7B2C-46EC-A61A-8559DB183ACA</string>
-		</dict>
-		<key>D16F6C33-8441-4A08-B68A-60738A260892</key>
+		<key>8917DBD0-0CB2-4E00-8AC7-2442CED202BB</key>
 		<dict>
 			<key>from</key>
 			<string>4C69DC02-030B-4C5C-810C-6C6E3960A365 - 4C69DC02-030B-4C5C-810C-6C6E3960A365</string>
 			<key>to</key>
 			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
+		</dict>
+		<key>9B1CBE55-DA62-464F-B9A8-FAB3784D0B71</key>
+		<dict>
+			<key>from</key>
+			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
+			<key>to</key>
+			<string>A9F849AA-7B2C-46EC-A61A-8559DB183ACA - A9F849AA-7B2C-46EC-A61A-8559DB183ACA</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
