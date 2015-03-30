@@ -167,7 +167,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>297.500000:158.000000</string>
+				<string>457.500000:158.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Ask for Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -273,7 +273,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>297.500000:264.000000</string>
+				<string>457.500000:264.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -344,6 +344,7 @@ do
 	mkdir -p "$basepath/output/"
 	# -y to overwrite files without prompting
 	# 2&gt; outputs a log to the desktop in case of errors
+	# if prores 444 use -profile:v high444 for the mp4 conversion
 	# jpg output slightly off start time, otherwise sometimes blank 
     /usr/local/bin/ffmpeg -i "$f" -y 2&gt; "$HOME"/Desktop/ffmpeglogger.txt \
 	-c:v libx264 -preset slow -profile:v high -level 4.1 -c:a libfdk_aac -b:a 128k "$newpath.mp4" \
@@ -463,7 +464,7 @@ done</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>297.500000:754.000000</string>
+				<string>457.500000:698.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -473,19 +474,19 @@ done</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>8917DBD0-0CB2-4E00-8AC7-2442CED202BB</key>
-		<dict>
-			<key>from</key>
-			<string>4C69DC02-030B-4C5C-810C-6C6E3960A365 - 4C69DC02-030B-4C5C-810C-6C6E3960A365</string>
-			<key>to</key>
-			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
-		</dict>
-		<key>9B1CBE55-DA62-464F-B9A8-FAB3784D0B71</key>
+		<key>60DC19A2-B51D-4AA9-A99C-0834519E7B73</key>
 		<dict>
 			<key>from</key>
 			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
 			<key>to</key>
 			<string>A9F849AA-7B2C-46EC-A61A-8559DB183ACA - A9F849AA-7B2C-46EC-A61A-8559DB183ACA</string>
+		</dict>
+		<key>90D25B0F-4800-4726-993C-305E7C1E4B2B</key>
+		<dict>
+			<key>from</key>
+			<string>4C69DC02-030B-4C5C-810C-6C6E3960A365 - 4C69DC02-030B-4C5C-810C-6C6E3960A365</string>
+			<key>to</key>
+			<string>1BDAB866-B370-4742-B900-77BB15F16DC8 - 1BDAB866-B370-4742-B900-77BB15F16DC8</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
